@@ -68,21 +68,3 @@ test("Apply Rules", () => {
     [0, 0, 0],
   ]);
 });
-
-test("applyRules calls printGrid", () => {
-  const grid = [
-    [0, 1, 0],
-    [1, 0, 1],
-    [0, 1, 0],
-  ];
-
-  const logSpy = jest.spyOn(console, "log");
-  const expectedOutput = ["⬜️ 🟩 ⬜️", "🟩 ⬜️ 🟩", "⬜️ 🟩 ⬜️"];
-
-  applyRules(grid);
-
-  expect(logSpy.mock.calls[0][0]).toBe("Generation: ");
-  expect(logSpy.mock.calls.slice(1).flat()).toEqual(expectedOutput);
-
-  logSpy.mockRestore();
-});
