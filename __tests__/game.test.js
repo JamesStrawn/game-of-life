@@ -1,4 +1,9 @@
-const { createGrid, applyRules, countLiveNeighbors } = require("../game");
+const {
+  createGrid,
+  createRandomizedGrid,
+  applyRules,
+  countLiveNeighbors,
+} = require("../game");
 
 test("Example Test", () => {
   expect(2 + 2).toBe(4);
@@ -11,6 +16,17 @@ test("Create Grid", () => {
   expect(grid.length).toBe(rows);
   expect(grid[0].length).toBe(cols);
   expect(grid.every((row) => row.every((cell) => cell === 0))).toBe(true);
+});
+
+test("Create Randomized Grid", () => {
+  const rows = 3;
+  const cols = 3;
+  const grid = createRandomizedGrid(rows, cols);
+  expect(grid.length).toBe(rows);
+  expect(grid[0].length).toBe(cols);
+  expect(
+    grid.every((row) => row.every((cell) => cell === 0 || cell === 1))
+  ).toBe(true);
 });
 
 // Test all the boundary conditions for countLiveNeighbors

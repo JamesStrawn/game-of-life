@@ -1,15 +1,15 @@
-const { createGrid, applyRules } = require("./game");
+const { createGrid, createRandomizedGrid, applyRules } = require("./game");
 const { printGrid } = require("./display");
 
 // Define size of grid
-const rows = 10;
-const cols = 10;
+const rows = 35;
+const cols = 33;
 
 // Create the initial grid
-let grid = createGrid(rows, cols);
+let grid = createRandomizedGrid(rows, cols);
 
 // Run the game for a specified number of generations
-const numGenerations = 10;
+const numGenerations = 400;
 
 for (let generation = 0; generation < numGenerations; generation++) {
   console.log(`Generation: ${generation + 1}:`);

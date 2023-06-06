@@ -10,6 +10,18 @@ function createGrid(rows, cols) {
   return grid;
 }
 
+function createRandomizedGrid(rows, cols) {
+  const grid = [];
+  for (let i = 0; i < rows; i++) {
+    const row = [];
+    for (let j = 0; j < cols; j++) {
+      row.push(Math.round(Math.random()));
+    }
+    grid.push(row);
+  }
+  return grid;
+}
+
 /*
 function countLiveNeighbors(grid, row, col) {
   let liveNeighbors = 0;
@@ -101,6 +113,7 @@ function applyRules(grid) {
 
 module.exports = {
   createGrid,
+  createRandomizedGrid,
   applyRules,
   countLiveNeighbors,
 };
